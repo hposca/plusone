@@ -1,0 +1,5 @@
+Flask==0.12.2
+flask-sqlalchemy
+SQLAlchemy
+mysqlclient
+ipdb
