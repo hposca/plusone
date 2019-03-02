@@ -15,6 +15,7 @@ RUN apk update \
       build-base \
       mariadb-client-libs \
       mariadb-dev \
+      mysql-client \
       python3-dev
 
 COPY requirements.txt /app/

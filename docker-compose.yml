@@ -12,6 +12,11 @@ services:
     environment:
       FLASK_DEBUG: 1
       FLASK_APP: main.py
+      DATABASE_USERNAME: "root"
+      DATABASE_PASSWORD: "password"
+      DATABASE_NAME: "plusone"
+      DATABASE_HOST: "mysql"
+      SECRET_KEY: "aVeryLongSecretKeyShouldBePutHere"
     ports:
       - 5000:5000
     volumes:
