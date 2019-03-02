@@ -21,4 +21,5 @@ mysql -h mysql -u root -ppassword
 show databases;
 use plusone;
 show tables;
+select * from users;
 ```

@@ -16,7 +16,7 @@ class UserRegistration(Resource):
 
         new_user = UserModel(
             email = email,
-            password = password
+            password = UserModel.generate_hash(password)
         )
         try:
             new_user.save_to_db()
@@ -31,12 +31,13 @@ class UserLogin(Resource):
     def post(self):
         data = parser.parse_args()
         email = data['email']
+        password = data['password']
 
         current_user = UserModel.find_by_email(email)
         if not current_user:
             return {'message': 'User {} doesn\'t exist'.format(email)}
 
-        if data['password'] == current_user.password:
+        if UserModel.verify_hash(password, current_user.password):
             return {'message': 'Logged in as {}'.format(email)}
         else:
             return {'message': 'Wrong credentials'}
