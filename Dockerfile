@@ -26,4 +26,6 @@ EXPOSE 5000
 
 WORKDIR /app/
 
-CMD ["python", "main.py"]
+ENV FLASK_APP=main.py
+
+CMD ["flask", "run", "--host=0.0.0.0"]
