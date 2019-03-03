@@ -8,9 +8,10 @@ docker-compose up web
 curl http://localhost:5000/
 ```
 
+Excute this script for a simple validation that all the steps are working:
+
 ```bash
-curl -X POST -d email=hello@world.com&password=asecretpassword http://localhost:5000/registration
-curl -X POST -d email=hello@world.com&password=asecretpassword http://localhost:5000/login
+./simple_validation.sh
 ```
 
 Deep look into database:
