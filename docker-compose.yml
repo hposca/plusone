@@ -6,7 +6,7 @@ services:
   # Main containers #
   ###################
 
-  web:
+  plusone:
     build: .
     environment:
       FLASK_DEBUG: 1

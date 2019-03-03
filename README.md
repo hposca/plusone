@@ -1,23 +1,22 @@
 # Running
 
 ```bash
-docker-compose up web
-```
-
-```bash
+make up
+# Wait a while for the services to start
+# Check that we are accepting connections
 curl http://localhost:5000/
 ```
 
-Excute this script for a simple validation that all the steps are working:
+To run a simple validation that all the steps are working:
 
 ```bash
-./simple_validation.sh
+make local_integration_test
 ```
 
 Deep look into database:
 
 ```bash
-docker-compose run web /bin/sh
+make shell
 mysql -h mysql -u root -ppassword
 show databases;
 use plusone;
