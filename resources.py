@@ -90,6 +90,10 @@ class CurrentNumber(Resource):
         user = fetchUser()
         data = number_parser.parse_args()
         new_number = data['current']
+
+        if int(new_number) < 0:
+            return {'message': 'Number, {}, should not be negative.'.format(new_number)}, 500
+
         user.number = new_number
 
         try:

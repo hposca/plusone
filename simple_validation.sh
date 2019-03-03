@@ -42,6 +42,10 @@ echo "Let's get the next number..."
 curl -s --header "Authorization: Bearer ${access_token}" ${url}/next | jq '.number'
 echo ""
 
+echo "Trying to set a negative number..."
+curl -s --header "Authorization: Bearer ${access_token}" -X PUT -d "current=-1234" ${url}/current | jq '.message'
+echo ""
+
 echo ""
 echo ""
 echo "Now as another user..."
@@ -84,4 +88,8 @@ echo ""
 
 echo "Let's get the next number..."
 curl -s --header "Authorization: Bearer ${access_token}" ${url}/next | jq '.number'
+echo ""
+
+echo "Trying to set a negative number..."
+curl -s --header "Authorization: Bearer ${access_token}" -X PUT -d "current=-5678" ${url}/current | jq '.message'
 echo ""
