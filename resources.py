@@ -56,27 +56,51 @@ class UserLogin(Resource):
         else:
             return {'message': 'Wrong credentials'}
 
+def fetchUser():
+    email = get_jwt_identity()
+    return UserModel.find_by_email(email)
+
 class NextNumber(Resource):
     @jwt_required
     def get(self):
+        user = fetchUser()
+        new_number = user.number + 1
+        user.number = new_number
+
+        try:
+            user.save_to_db()
+        except:
+            return {'message': 'Something went wrong when we tried to save the next number.'}, 500
+
         return {
-            'answer': 42
+            'number': new_number
         }
 
 class CurrentNumber(Resource):
     @jwt_required
     def get(self):
+        user = fetchUser()
+
         return {
-            'answer': 42
+            'number': user.number
         }
 
     @jwt_required
-    def post(self):
+    def put(self):
+        user = fetchUser()
         data = number_parser.parse_args()
-        return {
-            'data': data
-        }
+        new_number = data['current']
+        user.number = new_number
 
+        try:
+            user.save_to_db()
+        except:
+            return {'message': 'Something went wrong when we tried to explicitly set the current number.'}, 500
+
+        return {
+            'message': 'New current number set successfully.',
+            'number': new_number
+        }
 
 class TokenRefresh(Resource):
     @jwt_refresh_token_required

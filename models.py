@@ -7,6 +7,7 @@ class UserModel(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     email = db.Column(db.String(256), unique = True, nullable = False)
     password = db.Column(db.String(256), nullable = False)
+    number = db.Column(db.Integer, default=0)
 
     def save_to_db(self):
         db.session.add(self)
