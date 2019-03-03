@@ -1,0 +1,14 @@
+.gitignore
+.git/
+
+.stamps
+Makefile
+
+*.pyc
+__pycache__
+
+Dockerfile
+README.md
+docker-compose.yml
+infrastructure/
+simple_validation.sh

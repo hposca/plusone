@@ -12,8 +12,9 @@ services:
       FLASK_DEBUG: 1
       DATABASE_USERNAME: "root"
       DATABASE_PASSWORD: "password"
+      DATABASE_PORT: 3306
       DATABASE_NAME: "plusone"
-      DATABASE_HOST: "mysql"
+      DATABASE_ADDRESS: "mysql"
       SECRET_KEY: "aVeryLongSecretKeyShouldBePutHere"
     ports:
       - 5000:5000

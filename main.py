@@ -10,10 +10,11 @@ import os
 app = Flask(__name__)
 api = Api(app)
 
-database_uri = "mysql://{username}:{password}@{hostname}/{database}".format(
+database_uri = "mysql://{username}:{password}@{hostname}:{port}/{database}".format(
     username=os.environ['DATABASE_USERNAME'],
     password=os.environ['DATABASE_PASSWORD'],
-    hostname=os.environ['DATABASE_HOST'],
+    hostname=os.environ['DATABASE_ADDRESS'],
+    port=os.environ['DATABASE_PORT'],
     database=os.environ['DATABASE_NAME'])
 
 app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
