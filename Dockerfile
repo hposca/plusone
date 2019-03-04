@@ -1,6 +1,5 @@
 FROM python:3.6.4-alpine3.7
 
-
 # Production version
 # RUN apk update && \
 #     apk add --upgrade python3-dev mariadb-dev build-base && \
@@ -18,7 +17,7 @@ RUN apk update \
       mysql-client \
       python3-dev
 
-COPY requirements.txt /app/
+COPY src/requirements.txt /app/
 
 RUN pip install -r /app/requirements.txt
 
@@ -26,7 +25,7 @@ EXPOSE 5000
 
 WORKDIR /app/
 
-COPY . /app/
+COPY src/ /app/
 
 ENV FLASK_APP=main.py
 

@@ -58,7 +58,7 @@ force-build: | docker
 .PHONY: local_integration_test
 local_integration_test: up | docker
 	sleep 3
-	./simple_validation.sh
+	scripts/simple_validation.sh
 
 # Humans should not be able to publish the image, only automated processes.
 # Also, the tagging mechanism needs to be improved for real-world usage.

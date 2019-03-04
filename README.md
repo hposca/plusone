@@ -96,7 +96,7 @@ After the image publication it will take a while for the ECS service to pull it.
 
 ```bash
 export LOAD_BALANCER=$(cd infrastructure/ && ./all_outputs.sh 2>/dev/null | grep alb_dns_name | awk -F' = ' '{ print $2}')
-./remote_validation.sh
+scripts/remote_validation.sh
 ```
 
 - If you want to live-follow log messages (they are stored on AWS CloudWatch), you can use [saw](https://github.com/TylerBrock/saw):
@@ -109,7 +109,7 @@ saw watch /ecs/plusone/plusone-task1
 
 ```bash
 export LOAD_BALANCER=$(cd infrastructure/ && ./all_outputs.sh 2>/dev/null | grep alb_dns_name | awk -F' = ' '{ print $2}')
-./stress_test.sh
+scripts/stress_test.sh
 ```
 
 # Finalizing
