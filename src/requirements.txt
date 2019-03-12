@@ -1,4 +1,4 @@
-Flask==0.12.2
+Flask==0.12.3
 Flask-JWT-Extended==3.3.4
 Flask-RESTful==0.3.6
 flask-sqlalchemy
